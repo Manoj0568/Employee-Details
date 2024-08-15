@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config()
 const app = express()
+// https://employee-details-9otp.onrender.com
 app.use(cors({
     origin: "https://employee-details-9otp.onrender.com",
     methods: "GET, POST, DELETE, PUT",

@@ -36,7 +36,7 @@ const DataTable = (props) => {
     if(!id){
         alert("Item can't delete internal issues")
     }else{
-        await axios.delete(`http://localhost:5000/api/employee/${id}`,{withCredentials:true}).then(()=>{
+        await axios.delete(`/api/employee/${id}`,{withCredentials:true}).then(()=>{
 
             let result = sampleData.filter((item)=>item._id != id)
             setSampleData([...result])

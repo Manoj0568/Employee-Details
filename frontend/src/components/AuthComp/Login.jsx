@@ -39,7 +39,7 @@ const Login = () => {
     if (_.isEmpty(validationerror)) {
       let payload = formData;
       await axios
-        .post("http://localhost:5000/api/login", payload,{withCredentials: true})
+        .post("/api/login", payload,{withCredentials: true})
         .then((data) => {
           console.log("login successful", data);
           navigate("/")

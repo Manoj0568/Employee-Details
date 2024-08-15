@@ -93,7 +93,7 @@ const DataModel = (props) => {
         form.append('course', formData.course);
     
         try {
-          await axios.post('http://localhost:5000/api/employee', form, {
+          await axios.post('/api/employee', form, {
             headers: {
               'Content-Type': 'multipart/form-data'
             },withCredentials: true

@@ -10,7 +10,7 @@ const Welcome = () => {
     const [sampleData,setSampleData] = useState([])
     const [showModal,setShowModal] = useState(false)
     const fectchData = async()=>{
-        await axios.get("http://localhost:5000/api/employee",{withCredentials:true}).then((res)=>{
+        await axios.get("/api/employee",{withCredentials:true}).then((res)=>{
             let finalData = res.data.data
             return setSampleData((s)=>[...finalData])
         })
@@ -25,7 +25,7 @@ const Welcome = () => {
     const [headerName,setHeaderName] = useState("")
     const [isAuthenticated, setIsAuthenticated] = useState(true);
     const getUsername = async ()=>{
-        await axios.get("http://localhost:5000/api/user",{withCredentials:true}).then((data)=>{
+        await axios.get("/api/user",{withCredentials:true}).then((data)=>{
          console.log(data.data.username)
          const resul = data.data.username
          setHeaderName(resul)
@@ -45,7 +45,7 @@ const Welcome = () => {
     
       const logoutHandler = async()=>{
         try {
-            await axios.get("http://localhost:5000/api/logout",{withCredentials:true}).then(()=>{
+            await axios.get("/api/logout",{withCredentials:true}).then(()=>{
                 Cookies.remove('authToken');
                 setIsAuthenticated(false)
             }) 

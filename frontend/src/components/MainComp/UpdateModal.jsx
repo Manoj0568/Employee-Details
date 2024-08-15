@@ -83,7 +83,7 @@ const UpdateModal = (props) => {
            
             const payload = {...formData}
             console.log("payload",payload)
-          await axios.put(`http://localhost:5000/api/employee/${formData._id}`, payload,{withCredentials: true
+          await axios.put(`/api/employee/${formData._id}`, payload,{withCredentials: true
           });
           alert('Upload successful');
           await fectchData()

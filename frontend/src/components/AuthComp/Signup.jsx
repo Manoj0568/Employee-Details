@@ -39,7 +39,7 @@ const Signup = () => {
     if (_.isEmpty(validationerror)) {
       let payload = formData;
       await axios
-        .post("http://localhost:5000/api/signup", payload)
+        .post("/api/signup", payload)
         .then((data) => navigate("/login"))
         .catch((err) => {
           alert(err.response.data.error);
