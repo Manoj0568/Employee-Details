@@ -187,7 +187,7 @@ const UpdateModal = (props) => {
                   type="checkbox"
                   name="course"
                   value="MCA"
-                  checked={course?.includes("MCA")}
+                  checked={course.includes("MCA")}
                   onChange={onChangeHandler}
                 />
                 MCA
@@ -197,7 +197,7 @@ const UpdateModal = (props) => {
                   type="checkbox"
                   name="course"
                   value="BCA"
-                  checked={course?.includes("BCA")}
+                  checked={course.includes("BCA")}
                   onChange={onChangeHandler}
                 />
                 BCA
@@ -207,7 +207,7 @@ const UpdateModal = (props) => {
                   type="checkbox"
                   name="course"
                   value="BSC"
-                  checked={course?.includes("BSC")}
+                  checked={course.includes("BSC")}
                   onChange={onChangeHandler}
                 />
                 BSC
