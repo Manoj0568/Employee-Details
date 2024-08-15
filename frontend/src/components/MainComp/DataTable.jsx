@@ -108,7 +108,7 @@ const DataTable = (props) => {
                 <td className="px-4 py-2">{item._id}</td>
                 <td className="px-4 py-2">{item.name}</td>
                 <td className="px-4 py-2">
-                  <img src={`http://localhost:5000/${item.image}`} alt={item.name} className="w-12 h-12 rounded-full" />
+                  <img src={`https://employee-details-9otp.onrender.com/${item.image}`} alt={item.name} className="w-12 h-12 rounded-full" />
                 </td>
                 <td className="px-4 py-2">{item.email}</td>
                 <td className="px-4 py-2">{item.mobile}</td>
