@@ -1,7 +1,6 @@
 
 
 const logoutController = (req,res,next)=>{
-    
         res.cookie('authToken', '', {
           expires: new Date(0),
           httpOnly: true,

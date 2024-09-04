@@ -9,7 +9,7 @@ export const userController = (req,res,next)  =>{
     const token = headers?.split("=")[1]
     
     if(!token){
-        return  res.status(400).json({error:"No token found"})
+        return  res.status(401).json({error:"No token found"})
         
       }
       try {
@@ -17,14 +17,14 @@ export const userController = (req,res,next)  =>{
           jwt.verify(String(token),JWT_SECRET_KEY,(err,user)=>{
             
               if(err?.name == "JsonWebTokenError"){
-                  return next(res.status(400).json({message:err})) 
+                  return next(res.status(401).json({message:err})) 
               }
               
               req.tokenId = user.id
           })
           next()
       } catch (error) {
-          return res.status(400).json({message:error.message})
+          return res.status(401).json({message:error.message})
       }
     }
 
@@ -39,7 +39,7 @@ export const userController = (req,res,next)  =>{
             return new Error(err)
         }
         if(!user){
-            return res.status(400).json({message:"invalide user token"})
+            return res.status(401).json({message:"invalide user token"})
         }
     
         return res.status(200).json(user)

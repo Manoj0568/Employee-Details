@@ -41,7 +41,11 @@ const Login = () => {
       await axios
         .post("/api/login", payload,{withCredentials: true})
         .then((data) => {
-          console.log("login successful", data);
+          console.log("login successful", data.data);
+          const refreshToken = data.data.refreshToken
+          const existingUser = data.data.existingUser._id
+          localStorage.setItem("refreshToken", refreshToken)
+          localStorage.setItem("existingUser",existingUser)
           navigate("/")
         })
         .catch((err) => alert(err.response.data.error));

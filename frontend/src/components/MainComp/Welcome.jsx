@@ -5,12 +5,13 @@ import DataModel from './DataModel'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import {useNavigate } from 'react-router-dom'
+import axiosInstance from '../../Helper/axiosInterceptor'
 const Welcome = () => {
     const navigate = useNavigate()
     const [sampleData,setSampleData] = useState([])
     const [showModal,setShowModal] = useState(false)
     const fectchData = async()=>{
-        await axios.get("/api/employee",{withCredentials:true}).then((res)=>{
+        await axiosInstance.get("/api/employee",{withCredentials:true}).then((res)=>{
             let finalData = res.data.data
             return setSampleData((s)=>[...finalData])
         })
@@ -25,7 +26,7 @@ const Welcome = () => {
     const [headerName,setHeaderName] = useState("")
     const [isAuthenticated, setIsAuthenticated] = useState(true);
     const getUsername = async ()=>{
-        await axios.get("/api/user",{withCredentials:true}).then((data)=>{
+        await axiosInstance.get("/api/user",{withCredentials:true}).then((data)=>{
          console.log(data.data.username)
          const resul = data.data.username
          setHeaderName(resul)
@@ -45,7 +46,9 @@ const Welcome = () => {
     
       const logoutHandler = async()=>{
         try {
-            await axios.get("/api/logout",{withCredentials:true}).then(()=>{
+            localStorage.removeItem('existingUser')
+            localStorage.removeItem('refreshToken')
+            await axiosInstance.get("/api/logout",{withCredentials:true}).then(()=>{
                 Cookies.remove('authToken');
                 setIsAuthenticated(false)
             }) 
